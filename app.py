@@ -1,21 +1,11 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return "Hello! This is the main page <h1>HELLO<h1>"
-
-
-@app.route("/<name>")
-def user(name):
-    return f" Hello {name}!"
-
-
-@app.route("/admin/")  # Routes to the webpage regardless of whether there's a slash afterwards or not
-def admin():
-    return redirect(url_for("user", name="Admin"))
+@app.route('/<name>')
+def home(name):
+    return render_template("index.html", content=["tim", "joe", "bill"])
 
 
 if __name__ == '__main__':

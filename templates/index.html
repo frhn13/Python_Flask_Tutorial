@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+    </head>
+    <body>
+        <h1>Home page!</h1>
+        <p>{{ content }}</p>
+        {% for x in content %}
+            {% if x=="tim" %}
+                <p>Hello {{ x }}</p>
+            {% else %}
+                <p>Hello {{ x }}, I guess</p>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>
