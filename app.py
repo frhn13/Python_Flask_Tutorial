@@ -79,7 +79,16 @@ def logout():
     return redirect(url_for("login"))
 
 
-if __name__ == '__main__':
+@app.route("/view")
+def view():
+    return render_template("view.html", values=users.query.all())
+
+
+@app.before_first_request
+def create_tables():
     db.create_all()
-    print("fej")
+
+
+if __name__ == '__main__':
     app.run(debug=True)
+
